@@ -1,0 +1,36 @@
+# Author: Assen Totin <assen.totin@gmail.com>
+#
+# This software is released under GNU General Public License.
+# See the LICENSE file for details or visit http://www.gnu.org/copyleft/gpl.html 
+# for details.
+
+MSGFMT = @MSGFMT@
+
+TARGET = lockkeys.mo
+SRC = lockkeys.po
+
+LOCALDIRS=`find . -maxdepth 1 -mindepth 1 -type d`
+
+LOCALEDIR = @LOCALEDIR@
+
+all: $(TARGET)
+
+clean:
+	for dir in $(LOCALDIRS); do rm -f $$dir/$(TARGET); done
+
+distclean:
+	make clean
+	rm -f Makefile
+
+maintainer-clean:
+	make distclean
+
+install:
+	for dir in $(LOCALDIRS); do test -z $(LOCALEDIR)/$$dir/LC_MESSAGES/ || mkdir -p $(LOCALEDIR)/$$dir/LC_MESSAGES/; cp -f $$dir/$(TARGET) $(LOCALEDIR)/$$dir/LC_MESSAGES/; done
+
+uninstall:
+	for dir in $(LOCALDIRS); do rm -f $(LOCALEDIR)/$$dir/LC_MESSAGES/$(TARGET); done
+
+$(TARGET):
+	for dir in $(LOCALDIRS); do $(MSGFMT) -c -v -o $$dir/$(TARGET) $$dir/$(SRC); done
+

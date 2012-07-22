@@ -1,0 +1,112 @@
+# Translation of led_applet.
+# Copyright (C) 2002 Free Software Foundation, Inc.
+# Dennis Björklund <db@zigo.dhs.org>, 2002.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: led_applet 0.3\n"
+"POT-Creation-Date: 2003-02-05 17:32+0100\n"
+"PO-Revision-Date: 2002-12-31 09:11+0100\n"
+"Last-Translator: Dennis Björklund <db@zigo.dhs.org>\n"
+"Language-Team: Swedish <sv@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: GNOME_LockKeysApplet.server.in.in.h:1 src/lock-keys-applet.c:226
+#, fuzzy
+msgid ""
+"An applet that shows the state of your Capslock-, Numlock-, and Scroll-lock "
+"keys"
+msgstr ""
+"Detta panelprogram visar tillståndet på dina Caps Lock, Num Lock och Scroll "
+"Lock-knappar"
+
+#: GNOME_LockKeysApplet.server.in.in.h:2
+#, fuzzy
+msgid "Lock Keys"
+msgstr "Visa lysdioder"
+
+#: GNOME_LockKeysApplet.server.in.in.h:3
+#, fuzzy
+msgid "Lock Keys Applet"
+msgstr "Visa lysdioder"
+
+#: GNOME_LockKeysApplet.server.in.in.h:4
+#, fuzzy
+msgid "Lock Keys Applet Factory"
+msgstr "LED Applet Factory"
+
+#: GNOME_LockKeysApplet.server.in.in.h:5
+msgid "Utility"
+msgstr "Verktyg"
+
+#. Feel free to put your names here translators :-)
+#: src/lock-keys-applet.c:216
+msgid "TRANSLATORS"
+msgstr "Dennis Björklund <db@zigo.dhs.org>"
+
+#: src/lock-keys-applet.c:225
+msgid "Keyboard Lock Keys"
+msgstr ""
+
+#: src/lock-keys-applet.c:322
+#, fuzzy
+msgid "Lock Keys Preferences"
+msgstr "Inställningar för lysdioder"
+
+#: src/lock-keys-applet.c:337
+#, fuzzy
+msgid "Settings"
+msgstr "Inställningar:"
+
+#: src/lock-keys-applet.c:353
+#, fuzzy
+msgid "Show c_aps-lock"
+msgstr "Visa Caps Lock"
+
+#: src/lock-keys-applet.c:355
+#, fuzzy
+msgid "Show _num-lock"
+msgstr "Visa Num Lock"
+
+#: src/lock-keys-applet.c:357
+#, fuzzy
+msgid "Show _scroll-lock"
+msgstr "Visa Scroll Lock"
+
+#: src/lock-keys-applet.c:496
+msgid "On"
+msgstr "På"
+
+#: src/lock-keys-applet.c:497
+msgid "Off"
+msgstr "Av"
+
+#: src/lock-keys-applet.c:498
+#, c-format
+msgid "Caps: %s Num: %s Scroll: %s"
+msgstr "Caps: %s Num: %s Scroll: %s"
+
+#: src/lock-keys-applet.c:606
+msgid "Could not initialize X Keyboard Extension."
+msgstr "Kunde inte initiera X Keyboard-utökningen."
+
+#: src/lock-keys-applet.c:671
+#, fuzzy
+msgid "_Settings..."
+msgstr "_Egenskaper..."
+
+#: src/lock-keys-applet.c:671
+msgid "_Help"
+msgstr ""
+
+#: src/lock-keys-applet.c:671
+msgid "_About..."
+msgstr "_Om..."
+
+#~ msgid "This applet shows the state of your Num/Shift/Scrolllock keys"
+#~ msgstr "Visa tillståndet på dina Num/Skift/Scroll-Lock-knappar"
+
+#~ msgid "Led Applet"
+#~ msgstr "Visa lysdioder"

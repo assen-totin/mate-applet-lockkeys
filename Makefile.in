@@ -1,0 +1,32 @@
+# This file is a part of Voody Blue Subtitler suit.
+# 
+# Author: Assen Totin <assen.totin@gmail.com>
+#
+# This software is released under GNU General Public License.
+# See the LICENSE file for details or visit http://www.gnu.org/copyleft/gpl.html 
+# for details.
+
+all clean install uninstall: 
+	$(MAKE) -C src $@
+	$(MAKE) -C po $@
+
+distclean:
+	$(MAKE) -C src $@
+	$(MAKE) -C po $@
+	rm -f Makefile
+	rm -f config.h
+	mate-applet-lockkeys.spec
+
+maintainer-clean:
+	$(MAKE) -C src $@
+	$(MAKE) -C po $@
+	rm -f Makefile
+	rm -f config.h
+	rm -f config.h.in
+	rm -f configure aclocal.m4 config.log config.status
+	rm -rf autom4te.cache
+	rm -f mate-applet-lockkeys.spec
+
+rpmbuild:
+	rpmbuild -bb --define "_builddir @TOPLEVELDIR@" mate-applet-lockkeys.spec
+ 

@@ -1,0 +1,96 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2003-02-05 17:32+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: GNOME_LockKeysApplet.server.in.in.h:1 src/lock-keys-applet.c:226
+msgid ""
+"An applet that shows the state of your Capslock-, Numlock-, and Scroll-lock "
+"keys"
+msgstr ""
+
+#: GNOME_LockKeysApplet.server.in.in.h:2
+msgid "Lock Keys"
+msgstr ""
+
+#: GNOME_LockKeysApplet.server.in.in.h:3
+msgid "Lock Keys Applet"
+msgstr ""
+
+#: GNOME_LockKeysApplet.server.in.in.h:4
+msgid "Lock Keys Applet Factory"
+msgstr ""
+
+#: GNOME_LockKeysApplet.server.in.in.h:5
+msgid "Utility"
+msgstr ""
+
+#. Feel free to put your names here translators :-)
+#: src/lock-keys-applet.c:216
+msgid "TRANSLATORS"
+msgstr ""
+
+#: src/lock-keys-applet.c:225
+msgid "Keyboard Lock Keys"
+msgstr ""
+
+#: src/lock-keys-applet.c:322
+msgid "Lock Keys Preferences"
+msgstr ""
+
+#: src/lock-keys-applet.c:337
+msgid "Settings"
+msgstr ""
+
+#: src/lock-keys-applet.c:353
+msgid "Show c_aps-lock"
+msgstr ""
+
+#: src/lock-keys-applet.c:355
+msgid "Show _num-lock"
+msgstr ""
+
+#: src/lock-keys-applet.c:357
+msgid "Show _scroll-lock"
+msgstr ""
+
+#: src/lock-keys-applet.c:496
+msgid "On"
+msgstr ""
+
+#: src/lock-keys-applet.c:497
+msgid "Off"
+msgstr ""
+
+#: src/lock-keys-applet.c:498
+#, c-format
+msgid "Caps: %s Num: %s Scroll: %s"
+msgstr ""
+
+#: src/lock-keys-applet.c:606
+msgid "Could not initialize X Keyboard Extension."
+msgstr ""
+
+#: src/lock-keys-applet.c:671
+msgid "_Preferences..."
+msgstr ""
+
+#: src/lock-keys-applet.c:671
+msgid "_Help"
+msgstr ""
+
+#: src/lock-keys-applet.c:671
+msgid "_About..."
+msgstr ""

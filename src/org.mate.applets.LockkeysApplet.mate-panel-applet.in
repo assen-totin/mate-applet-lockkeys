@@ -1,0 +1,23 @@
+[Applet Factory]
+Id=LockkeysAppletFactory
+Location=@LIBEXECDIR@/mate-panel/lockkeys_applet
+Name=Keyboard LED Indicator
+Name[en_GB]=Keyboard LED Indicator
+Name[bg_BG]=Индикатор от клавиатурата
+Name[ru_RU]=Индикатор клавиатуры
+Description=Display keyboard LED status
+Description[en_GB]=Display keyboard LED status
+Description[bg_BG]=Показва състоянието на клавиатурата
+Description[ru_RU]=Показывает состояние клавиатуры
+
+[LockkeysApplet]
+Name=Keyboard LED Indicator
+Name[en_GB]=Keyboard LED Indicator
+Name[bg_BG]=Индикатор от клавиатурата
+Name[ru_RU]=Индикатор клавиатуры
+Description=Display keyboard LED status
+Description[en_GB]=Display keyboard LED status
+Description[bg_BG]=Показва състоянието на клавиатурата
+Description[ru_RU]=Показывает состояние клавиатуры
+Icon=applet_lockkeys
+MateComponentId=OAFIID:MATE_LockkeysApplet
