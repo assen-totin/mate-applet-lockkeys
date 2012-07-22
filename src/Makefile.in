@@ -57,6 +57,8 @@ install:
 	cp -f org.mate.applets.LockkeysApplet.mate-panel-applet $(DATAROOTDIR)/mate-panel/applets/
 	test -z $(DATAROOTDIR)/dbus-1/services/ || mkdir -p $(DATAROOTDIR)/dbus-1/services/
 	cp -f org.mate.panel.applet.LockkeysApplet.service $(DATAROOTDIR)/dbus-1/services/
+	test -z $(DATAROOTDIR)/mate-2.0/ui/ || mkdir -p $(DATAROOTDIR)/mate-2.0/ui/
+	cp -f lockkeys-applet-menu.xml $(DATAROOTDIR)/mate-2.0/ui/
 
 uninstall:
 	rm -f $(TARGET) $(LIBEXECDIR)/mate-panel/$(TARGET)
@@ -73,6 +75,7 @@ uninstall:
 	gtk-update-icon-cache -f -t $(ICONSDIR)/hicolor
 	rm -f $(DATAROOTDIR)/mate-panel/applets/org.mate.applets.LockkeysApplet.mate-panel-applet
 	rm -f $(DATAROOTDIR)/dbus-1/services/org.mate.panel.applet.LockkeysApplet.service
+	rm -f $(DATAROOTDIR)/mate-2.0/ui/lockkeys-applet-menu.xml
 
 $(TARGET): main.c $(SRC_BACKEND)
 	$(CC) $(CFLAGS) $(INCLUDES) main.c

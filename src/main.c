@@ -27,11 +27,6 @@
 
 #define _(String) gettext (String)
 
-static const char applet_menu_xml [] = 
-	"<menuitem name=\"Item 1\" action=\"Settings\" />\n"
-	"<menuitem name=\"Item 2\" action=\"Help\" />\n"
-	"<menuitem name=\"Item 3\" action=\"About\" />\n";
-
 /* Reorder the icons in the applet, according to the orient and the size 
  * of the panel
  * at the moment this seems ok...
@@ -143,35 +138,27 @@ static void applet_destroy(MatePanelApplet *applet_widget, LedApplet *applet) {
 /* Just a boring about box
  */
 
+static void quitDialogOK( GtkWidget *widget, gpointer data ){
+        GtkWidget *quitDialog = data;
+        gtk_widget_destroy(quitDialog);
+}
+
+
 static void about_cb (GtkAction *action, LedApplet *applet) {
-	GdkPixbuf *icon;
-	const char *authors[] = {"Assen Totin <assen.totin@gmail.com>", NULL};
-	
-	char *translators = _("TRANSLATORS");
+	char msg1[1024];
 
-	if (applet->about) {
-		gtk_window_present(GTK_WINDOW(applet->about));
-		return;
-	}
+	sprintf(&msg1[0], "%s\n\n%s\n\n%s", _("Keyboard Lock Keys"), _("An applet that shows the state of your Capslock-, Numlock-, and Scroll-lock keys"), _("Assen Totin <assen.totin@gmail.com>"));
 
-        char image_file[1024];
-        sprintf(&image_file[0], "%s/%s", APPLET_ICON_PATH, APPLET_ICON);
-        icon = gdk_pixbuf_new_from_file(&image_file[0], NULL);
+        GtkWidget *label = gtk_label_new (&msg1[0]);
 
-	applet->about = GTK_DIALOG (gtk_about_dialog_new ());
+        GtkWidget *quitDialog = gtk_dialog_new_with_buttons (_("Keyboard Lock Keys"), GTK_WINDOW(applet), GTK_DIALOG_MODAL, NULL);
+        GtkWidget *buttonOK = gtk_dialog_add_button (GTK_DIALOG(quitDialog), GTK_STOCK_OK, GTK_RESPONSE_OK);
 
-	g_object_set (G_OBJECT (applet->about),
-		      "program-name", _("Keyboard Lock Keys") ,
-		      "copyright", "Copyright 2012 Assen Totin and others",
-		      "comments", _("An applet that shows the state of your Capslock-, Numlock-, and Scroll-lock keys"),
-		      "authors", (const char **) authors,
-		      "translator-credits", strcmp("TRANSLATORS", translators) ? translators : NULL,
-		      "logo", icon,
-		      NULL);
-	
-	g_object_unref(G_OBJECT(icon));
-	g_object_add_weak_pointer(G_OBJECT(applet->about), (gpointer*)&applet->about);
-	gtk_widget_show(GTK_WIDGET(applet->about));
+        gtk_dialog_set_default_response (GTK_DIALOG (quitDialog), GTK_RESPONSE_CANCEL);
+        gtk_container_add (GTK_CONTAINER (GTK_DIALOG(quitDialog)->vbox), label);
+        g_signal_connect (G_OBJECT(buttonOK), "clicked", G_CALLBACK (quitDialogOK), (gpointer) quitDialog);
+
+        gtk_widget_show_all (GTK_WIDGET(quitDialog));
 }
 
 
@@ -253,7 +240,7 @@ static void settings_cb (GtkAction *action, LedApplet *applet) {
 		GTK_DIALOG(gtk_dialog_new_with_buttons(_("Lock Keys Preferences"), 
 		NULL, GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_NO_SEPARATOR,
 		GTK_STOCK_CLOSE, GTK_RESPONSE_ACCEPT, 
-		GTK_STOCK_HELP, GTK_RESPONSE_HELP,
+		//GTK_STOCK_HELP, GTK_RESPONSE_HELP,
 		NULL));
 
 	//gtk_container_set_border_width(GTK_CONTAINER(applet->settings), 12);
@@ -457,7 +444,7 @@ static const GtkActionEntry applet_menu_actions [] = {
 	//{ "Help", GTK_STOCK_HELP, N_("_Help"), NULL, NULL, G_CALLBACK (help_cb) },
 	//{ "About", GTK_STOCK_ABOUT, N_("_About"), NULL, NULL, G_CALLBACK (about_cb) }
 	{ "Settings", GTK_STOCK_PROPERTIES, "_Settings", NULL, NULL, G_CALLBACK (settings_cb) },
-	{ "Help", GTK_STOCK_HELP, "_Help", NULL, NULL, G_CALLBACK (help_cb) },
+	//{ "Help", GTK_STOCK_HELP, "_Help", NULL, NULL, G_CALLBACK (help_cb) },
 	{ "About", GTK_STOCK_ABOUT, NULL, "_About", NULL, G_CALLBACK (about_cb) }
 };
 
