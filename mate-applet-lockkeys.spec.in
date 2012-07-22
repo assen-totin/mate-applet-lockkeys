@@ -28,20 +28,26 @@ mkdir -p $RPM_BUILD_ROOT@ICONSDIR@/hicolor/24x24/apps
 mkdir -p $RPM_BUILD_ROOT@ICONSDIR@/hicolor/32x32/apps
 mkdir -p $RPM_BUILD_ROOT@DATAROOTDIR@/mate-panel/applets
 mkdir -p $RPM_BUILD_ROOT@DATAROOTDIR@/dbus-1/services
+mkdir -p $RPM_BUILD_ROOT@DATAROOTDIR@/mate-2.0/ui/
 
 for DIR in `find po/ -maxdepth 1 -mindepth 1 -type d | sed s/po.//g`; do
 	mkdir -p $RPM_BUILD_ROOT@LOCALEDIR@/$DIR/LC_MESSAGES
 done
 
 install -s -m 755 src/lockkeys_applet $RPM_BUILD_ROOT@LIBEXECDIR@/mate-panel/lockkeys_applet
-install -m 644 src/images/applet_lockkeys_on.png $RPM_BUILD_ROOT@PIXMAPDIR@/applet_lockkeys_on.png
-install -m 644 src/images/applet_lockkeys_off.png $RPM_BUILD_ROOT@PIXMAPDIR@/applet_lockkeys_off.png
+install -m 644 src/images/applet_lockkeys_capslock_off.xpm $RPM_BUILD_ROOT@PIXMAPDIR@/applet_lockkeys_capslock_off.xpm
+install -m 644 src/images/applet_lockkeys_capslock_on.xpm $RPM_BUILD_ROOT@PIXMAPDIR@/applet_lockkeys_capslock_on.xpm
+install -m 644 src/images/applet_lockkeys_numlock_off.xpm $RPM_BUILD_ROOT@PIXMAPDIR@/applet_lockkeys_numlock_off.xpm
+install -m 644 src/images/applet_lockkeys_numlock_on.xpm $RPM_BUILD_ROOT@PIXMAPDIR@/applet_lockkeys_numlock_on.xpm
+install -m 644 src/images/applet_lockkeys_scrolllock_off.xpm $RPM_BUILD_ROOT@PIXMAPDIR@/applet_lockkeys_scrolllock_off.xpm
+install -m 644 src/images/applet_lockkeys_scrolllock_on.xpm $RPM_BUILD_ROOT@PIXMAPDIR@/applet_lockkeys_scrolllock_on.xpm
 install -m 644 src/images/applet_lockkeys.16.png $RPM_BUILD_ROOT@ICONSDIR@/hicolor/16x16/apps/applet_lockkeys.png
 install -m 644 src/images/applet_lockkeys.22.png $RPM_BUILD_ROOT@ICONSDIR@/hicolor/22x22/apps/applet_lockkeys.png
 install -m 644 src/images/applet_lockkeys.24.png $RPM_BUILD_ROOT@ICONSDIR@/hicolor/24x24/apps/applet_lockkeys.png
 install -m 644 src/images/applet_lockkeys.32.png $RPM_BUILD_ROOT@ICONSDIR@/hicolor/32x32/apps/applet_lockkeys.png
 install -m 755 src/org.mate.applets.LockkeysApplet.mate-panel-applet $RPM_BUILD_ROOT@DATAROOTDIR@/mate-panel/applets/org.mate.applets.LockkeysApplet.mate-panel-applet
 install -m 755 src/org.mate.panel.applet.LockkeysApplet.service $RPM_BUILD_ROOT@DATAROOTDIR@/dbus-1/services/org.mate.panel.applet.LockkeysApplet.service
+install -m 644 src/lockkeys-applet-menu.xml $RPM_BUILD_ROOT@DATAROOTDIR@/mate-2.0/ui/lockkeys-applet-menu.xml
 
 for DIR in `find po/ -maxdepth 1 -mindepth 1 -type d | sed s/po.//g`; do
 	install -m 644 po/$DIR/lockkeys.mo $RPM_BUILD_ROOT@LOCALEDIR@/$DIR/LC_MESSAGES/lockkeys.mo
@@ -57,17 +63,22 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f lockkeys.lang
 %defattr(-,root,root)
-%doc README TODO LICENSE CHANGES AUTHOR BUGS
+%doc README TODO LICENSE CHANGES AUTHORS BUGS
 
 @LIBEXECDIR@/mate-panel/lockkeys_applet
-@PIXMAPDIR@/applet_lockkeys_on.png
-@PIXMAPDIR@/applet_lockkeys_off.png
+@PIXMAPDIR@/applet_lockkeys_capslock_off.xpm
+@PIXMAPDIR@/applet_lockkeys_capslock_on.xpm
+@PIXMAPDIR@/applet_lockkeys_numlock_off.xpm
+@PIXMAPDIR@/applet_lockkeys_numlock_on.xpm
+@PIXMAPDIR@/applet_lockkeys_scrolllock_off.xpm
+@PIXMAPDIR@/applet_lockkeys_scrolllock_on.xpm
 @ICONSDIR@/hicolor/16x16/apps/applet_lockkeys.png
 @ICONSDIR@/hicolor/22x22/apps/applet_lockkeys.png
 @ICONSDIR@/hicolor/24x24/apps/applet_lockkeys.png
 @ICONSDIR@/hicolor/32x32/apps/applet_lockkeys.png
 @DATAROOTDIR@/mate-panel/applets/org.mate.applets.LockkeysApplet.mate-panel-applet
 @DATAROOTDIR@/dbus-1/services/org.mate.panel.applet.LockkeysApplet.service
+@DATAROOTDIR@/mate-2.0/ui/lockkeys-applet-menu.xml
 
 %changelog
 * Sun Jul 22 2012 Assen Totin <assen.totin@gmail.com>
