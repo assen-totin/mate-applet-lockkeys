@@ -6,7 +6,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: led_applet 0.1\n"
 "POT-Creation-Date: 2003-02-05 17:32+0100\n"
 "PO-Revision-Date: 2012-07-22 11:22+0300\n"
 "Last-Translator: root <root@archimed>\n"
