@@ -51,9 +51,8 @@ fi
 # Check for packages
 PKG_CHECK_MODULES([GTK], [gtk+-2.0])
 PKG_CHECK_MODULES([GLIB], [glib-2.0])
+PKG_CHECK_MODULES([LIBMATE], [libmate-2.0])
 PKG_CHECK_MODULES([LIBMATEPANELAPPLET], [libmatepanelapplet-2.0])
-PKG_CHECK_MODULES([LIBMATECOMPONENT], [libmatecomponent-2.0])
-PKG_CHECK_MODULES([LIBMATECOMPONENTUI], [libmatecomponentui-2.0])
 
 # Makefiles
 AC_CONFIG_FILES([Makefile src/Makefile po/Makefile])
