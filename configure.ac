@@ -1,6 +1,5 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
-
 AC_PREREQ([2.66])
 AC_INIT([lockkeys], [0.0.1], [assen.totin@gmail.com])
 AC_CONFIG_HEADERS([config.h])
