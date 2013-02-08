@@ -1,0 +1,35 @@
+<schemalist gettext-domain="@GETTEXT_PACKAGE@">
+  <schema id="org.mate.panel.applet.LockkeysApplet">
+    <key name="capslock-state" type="b">
+      <default>true</default>
+      <summary>Caps Lock Status</summary>
+      <description>True if Caps Lock is On</description>
+    </key>
+    <key name="numlock-state" type="b">
+      <default>true</default>
+      <summary>Num Lock Status</summary>
+      <description>True if Num Lock is On</description>
+    </key>
+    <key name="scrolllock-state" type="b">
+      <default>true</default>
+      <summary>Sroll Lock Status</summary>
+      <description>True if Scroll Lock in On</description>
+    </key>
+    <key name="capslock-show" type="b">
+      <default>true</default>
+      <summary>Show Caps Lock</summary>
+      <description>If true, show Caps Lock status.</description>
+    </key>
+    <key name="numlock-show" type="b">
+      <default>true</default>
+      <summary>Show Num Lock</summary>
+      <description>If true, show Num Lock status.</description>
+    </key>
+    <key name="scrolllock-show" type="b">
+      <default>true</default>
+      <summary>Show Sroll Lock</summary>
+      <description>If true, show Scroll Lock status.</description>
+    </key>
+
+  </schema>
+</schemalist>

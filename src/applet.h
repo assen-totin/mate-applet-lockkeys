@@ -28,5 +28,10 @@ typedef struct {
         gboolean show[3];
 
         GtkDialog *about, *settings;
+#ifdef HAVE_GSETTINGS
+	GSettings *gsettings;
+#endif
 } LedApplet;
 
+
+#define APPLET_SCHEMA "org.mate.panel.applet.LockkeysApplet"

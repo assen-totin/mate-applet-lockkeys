@@ -1,7 +1,6 @@
-#                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 AC_PREREQ([2.66])
-AC_INIT([lockkeys], [0.0.1], [assen.totin@gmail.com])
+AC_INIT([lockkeys], [0.1.0], [assen.totin@gmail.com])
 AC_CONFIG_HEADERS([config.h])
 
 # prefix
@@ -51,13 +50,28 @@ fi
 PKG_CHECK_MODULES([GTK], [gtk+-2.0])
 PKG_CHECK_MODULES([GLIB], [glib-2.0])
 PKG_CHECK_MODULES([LIBMATE], [libmate-2.0])
-PKG_CHECK_MODULES([LIBMATEPANELAPPLET], [libmatepanelapplet-2.0])
+HAVE_GSETTINGS=0
+PKG_CHECK_MODULES([LIBMATEPANELAPPLET_4], [libmatepanelapplet-4.0], [FOUND_LMPA_4="yes"], [FOUND_LMPA_4="no"])
+PKG_CHECK_MODULES([LIBMATEPANELAPPLET_3], [libmatepanelapplet-3.0], [FOUND_LMPA_3="yes"], [FOUND_LMPA_3="no"])
+PKG_CHECK_MODULES([LIBMATEPANELAPPLET_2], [libmatepanelapplet-2.0], [FOUND_LMPA_2="yes"], [FOUND_LMPA_2="no"])
+if test $FOUND_LMPA_4 = "yes" ; then
+        LIBMATEPANELAPPLET="libmatepanelapplet-4.0"
+	HAVE_GSETTINGS=1
+elif test $FOUND_LMPA_3 = "yes" ; then
+        LIBMATEPANELAPPLET="libmatepanelapplet-3.0"
+elif test $FOUND_LMPA_2 = "yes" ; then
+        LIBMATEPANELAPPLET="libmatepanelapplet-2.0"
+else
+        AC_MSG_ERROR(["*** libmatepanelapplet not found."])
+fi
+AC_SUBST([LIBMATEPANELAPPLET])
+AC_DEFINE([HAVE_GSETTINGS],[1],[Define if we have GSettings])
 
 # Makefiles
 AC_CONFIG_FILES([Makefile src/Makefile po/Makefile])
 
 # Service files
-AC_CONFIG_FILES([src/org.mate.applets.LockkeysApplet.mate-panel-applet src/org.mate.panel.applet.LockkeysApplet.service mate-applet-lockkeys.spec])
+AC_CONFIG_FILES([src/org.mate.applets.LockkeysApplet.mate-panel-applet src/org.mate.panel.applet.LockkeysApplet.service mate-applet-lockkeys.spec src/org.mate.panel.applet.LockkeysApplet.gschema.xml])
 
 # Icons
 AC_DEFINE_UNQUOTED([APPLET_ICON_PATH], ["$PIXMAPDIR"], [Define icons location])

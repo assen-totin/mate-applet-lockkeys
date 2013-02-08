@@ -6,7 +6,7 @@ Group: System
 License: GPL
 Source: http://bilbo.online.bg/~assen/mate-applet-lockkeys/mate-applet-lockkeys-@PACKAGE_VERSION@.tar.gz
 BuildRoot: /var/tmp/%{name}-buildroot
-Requires: libmate-panel-applet-3 >= 1.3.0
+Requires: mate-panel >= 1.3.0
 
 %description
 Keyboard LED indicator applet for the MATE desktop environment.
@@ -29,6 +29,7 @@ mkdir -p $RPM_BUILD_ROOT@ICONSDIR@/hicolor/32x32/apps
 mkdir -p $RPM_BUILD_ROOT@DATAROOTDIR@/mate-panel/applets
 mkdir -p $RPM_BUILD_ROOT@DATAROOTDIR@/dbus-1/services
 mkdir -p $RPM_BUILD_ROOT@DATAROOTDIR@/mate-2.0/ui/
+mkdir -p $RPM_BUILD_ROOT@DATAROOTDIR@/glib-2.0/schemas
 
 for DIR in `find po/ -maxdepth 1 -mindepth 1 -type d | sed s/po.//g`; do
 	mkdir -p $RPM_BUILD_ROOT@LOCALEDIR@/$DIR/LC_MESSAGES
@@ -48,6 +49,7 @@ install -m 644 src/images/applet_lockkeys.32.png $RPM_BUILD_ROOT@ICONSDIR@/hicol
 install -m 755 src/org.mate.applets.LockkeysApplet.mate-panel-applet $RPM_BUILD_ROOT@DATAROOTDIR@/mate-panel/applets/org.mate.applets.LockkeysApplet.mate-panel-applet
 install -m 755 src/org.mate.panel.applet.LockkeysApplet.service $RPM_BUILD_ROOT@DATAROOTDIR@/dbus-1/services/org.mate.panel.applet.LockkeysApplet.service
 install -m 644 src/lockkeys-applet-menu.xml $RPM_BUILD_ROOT@DATAROOTDIR@/mate-2.0/ui/lockkeys-applet-menu.xml
+install -m 644 src/org.mate.panel.applet.LockkeysApplet.gschema.xml $RPM_BUILD_ROOT@DATAROOTDIR@/glib-2.0/schemas
 
 for DIR in `find po/ -maxdepth 1 -mindepth 1 -type d | sed s/po.//g`; do
 	install -m 644 po/$DIR/lockkeys.mo $RPM_BUILD_ROOT@LOCALEDIR@/$DIR/LC_MESSAGES/lockkeys.mo
@@ -57,6 +59,7 @@ done
 
 %post
 gtk-update-icon-cache -f -t @ICONSDIR@/hicolor
+glib-compile-schemas @DATAROOTDIR@/glib-2.0/schemas 2>/dev/null
 
 %clean
 rm -rf $RPM_BUILD_ROOT
