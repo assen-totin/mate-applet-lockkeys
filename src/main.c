@@ -14,6 +14,8 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  *
  *  Lock Keys (formerly Led) Applet was writen by Jörgen Scheibengruber <mfcn@gmx.de>
+ *  Modifed for MATE by Assen Totin <assen.totin@gmail.com>
+ *
  */
 
 #include <X11/XKBlib.h>
@@ -164,6 +166,7 @@ static void about_cb (GtkAction *action, LedApplet *applet) {
 
 /* Opens MATE help application
  */
+/*
 static void help_cb (GtkAction *action, LedApplet *applet) {
 	GError *error = NULL;
 
@@ -180,6 +183,7 @@ static void help_cb (GtkAction *action, LedApplet *applet) {
 		error = NULL;
 	}
 }
+*/
 
 /* Called when one of the applet->show_cb checkbutton is toggled...
  */
@@ -299,13 +303,13 @@ static void settings_cb (GtkAction *action, LedApplet *applet) {
 	while (answer == GTK_RESPONSE_HELP)	{
 		answer = gtk_dialog_run(applet->settings);
 		
-		if (answer == GTK_RESPONSE_HELP) 
-			help_cb(NULL, NULL);
-		else {
+//		if (answer == GTK_RESPONSE_HELP) 
+//			help_cb(NULL, NULL);
+//		else {
 #ifdef HAVE_GSETTINGS
-			g_settings_set_boolean (applet->gsettings, "capslock-state", applet->on[CAPSLOCK]);
-			g_settings_set_boolean (applet->gsettings, "numlock-state", applet->on[NUMLOCK]);
-			g_settings_set_boolean (applet->gsettings, "scrolllock-state", applet->on[SCROLLLOCK]);
+			g_settings_set_boolean (applet->gsettings, "capslock-show", applet->show[CAPSLOCK]);
+			g_settings_set_boolean (applet->gsettings, "numlock-show", applet->show[NUMLOCK]);
+			g_settings_set_boolean (applet->gsettings, "scrolllock-show", applet->show[SCROLLLOCK]);
 #else
 			mate_panel_applet_mateconf_set_bool(MATE_PANEL_APPLET(applet->applet), "capslock_show", applet->show[CAPSLOCK], NULL);
 			mate_panel_applet_mateconf_set_bool(MATE_PANEL_APPLET(applet->applet), "numlock_show", applet->show[NUMLOCK], NULL);
@@ -315,7 +319,7 @@ static void settings_cb (GtkAction *action, LedApplet *applet) {
 			gtk_widget_destroy(GTK_WIDGET(applet->settings));
 			applet->settings = NULL;
 			break;
-		}
+//		}
 	}
 }
 
@@ -394,9 +398,9 @@ void ledstates_changed(LedApplet *applet, unsigned int state) {
 	change_icons(applet);
 
 #ifdef HAVE_GSETTINGS
-        g_settings_set_boolean (applet->gsettings, "capslock-show", applet->on[CAPSLOCK]);
-        g_settings_set_boolean (applet->gsettings, "numlock-show", applet->on[NUMLOCK]);
-        g_settings_set_boolean (applet->gsettings, "scrolllock-show", applet->on[SCROLLLOCK]);
+        g_settings_set_boolean (applet->gsettings, "capslock-state", applet->on[CAPSLOCK]);
+        g_settings_set_boolean (applet->gsettings, "numlock-state", applet->on[NUMLOCK]);
+        g_settings_set_boolean (applet->gsettings, "scrolllock-state", applet->on[SCROLLLOCK]);
 #else
 	mate_panel_applet_mateconf_set_bool(MATE_PANEL_APPLET(applet->applet), "capslock_state", applet->on[CAPSLOCK], NULL);
 	mate_panel_applet_mateconf_set_bool(MATE_PANEL_APPLET(applet->applet), "numlock_state", applet->on[NUMLOCK], NULL);
@@ -537,7 +541,7 @@ static gboolean led_applet_factory(MatePanelApplet *applet_widget, const gchar *
         if (!applet->show[CAPSLOCK] && !applet->show[NUMLOCK] && !applet->show[SCROLLLOCK])
 	        applet->show[CAPSLOCK] = TRUE;
 
-        set_ledstates(applet);
+        //set_ledstates(applet);
 #else
 	if (mate_panel_applet_mateconf_get_bool(MATE_PANEL_APPLET(applet->applet), "have_settings", NULL)) {	
 		applet->on[CAPSLOCK] = mate_panel_applet_mateconf_get_bool(MATE_PANEL_APPLET(applet->applet), "capslock_state", NULL);
@@ -548,7 +552,7 @@ static gboolean led_applet_factory(MatePanelApplet *applet_widget, const gchar *
 		applet->show[SCROLLLOCK] = mate_panel_applet_mateconf_get_bool(MATE_PANEL_APPLET(applet->applet), "scrolllock_show", NULL);
 		if (!applet->show[CAPSLOCK] && !applet->show[NUMLOCK] && !applet->show[SCROLLLOCK])
 			applet->show[CAPSLOCK] = TRUE;
-		set_ledstates(applet);
+		//set_ledstates(applet);
 	}
 	mate_panel_applet_mateconf_set_bool(MATE_PANEL_APPLET(applet->applet), "have_settings", TRUE, NULL);
 #endif

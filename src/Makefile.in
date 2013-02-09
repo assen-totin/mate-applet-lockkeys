@@ -13,8 +13,8 @@ PIXMAPDIR = @PIXMAPDIR@
 ICONSDIR = @ICONSDIR@
 DATAROOTDIR = @DATAROOTDIR@
 
-INCLUDES=`pkg-config --cflags-only-I @LIBMATEPANELAPPLET@ libmate-2.0`
-LIBS=`pkg-config --libs @LIBMATEPANELAPPLET@ libmate-2.0` -lX11
+INCLUDES=`pkg-config --cflags-only-I @LIBMATEPANELAPPLET@`
+LIBS=`pkg-config --libs @LIBMATEPANELAPPLET@` -lX11
 
 TARGET = lockkeys_applet
 
