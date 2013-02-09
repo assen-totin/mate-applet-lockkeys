@@ -26,7 +26,7 @@ maintainer-clean:
 	make distclean
 
 install:
-	for dir in $(LOCALDIRS); do test -z $(LOCALEDIR)/$$dir/LC_MESSAGES/ || mkdir -p $(LOCALEDIR)/$$dir/LC_MESSAGES/; cp -f $$dir/$(TARGET) $(LOCALEDIR)/$$dir/LC_MESSAGES/; done
+	for dir in $(LOCALDIRS); do test -z $(DESTDIR)$(LOCALEDIR)/$$dir/LC_MESSAGES/ || mkdir -p $(DESTDIR)$(LOCALEDIR)/$$dir/LC_MESSAGES/; cp -f $$dir/$(TARGET) $(DESTDIR)$(LOCALEDIR)/$$dir/LC_MESSAGES/; done
 
 uninstall:
 	for dir in $(LOCALDIRS); do rm -f $(LOCALEDIR)/$$dir/LC_MESSAGES/$(TARGET); done

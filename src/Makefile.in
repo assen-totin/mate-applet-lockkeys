@@ -59,6 +59,7 @@ install:
 	cp -f org.mate.panel.applet.LockkeysApplet.service $(DESTDIR)$(DATAROOTDIR)/dbus-1/services/
 	test -z $(DESTDIR)$(DATAROOTDIR)/mate-2.0/ui/ || mkdir -p $(DESTDIR)$(DATAROOTDIR)/mate-2.0/ui/
 	cp -f lockkeys-applet-menu.xml $(DESTDIR)$(DATAROOTDIR)/mate-2.0/ui/
+	test -z $(DESTDIR)$(DATAROOTDIR)/glib-2.0/schemas || mkdir -p $(DESTDIR)$(DATAROOTDIR)/glib-2.0/schemas
 	cp -f org.mate.panel.applet.LockkeysApplet.gschema.xml $(DESTDIR)$(DATAROOTDIR)/glib-2.0/schemas
 	glib-compile-schemas $(DESTDIR)$(DATAROOTDIR)/glib-2.0/schemas 2>/dev/null
 

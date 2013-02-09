@@ -15,7 +15,7 @@ Keyboard LED indicator applet for the MATE desktop environment.
 #%setup -q
 
 %build
-./configure --prefix=/usr
+./configure --prefix=/usr --sysconfdir=/etc
 make
 
 %install
@@ -82,6 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 @DATAROOTDIR@/mate-panel/applets/org.mate.applets.LockkeysApplet.mate-panel-applet
 @DATAROOTDIR@/dbus-1/services/org.mate.panel.applet.LockkeysApplet.service
 @DATAROOTDIR@/mate-2.0/ui/lockkeys-applet-menu.xml
+@DATAROOTDIR@/glib-2.0/schemas/org.mate.panel.applet.LockkeysApplet.gschema.xml
 
 %changelog
 * Sun Jul 22 2012 Assen Totin <assen.totin@gmail.com>
