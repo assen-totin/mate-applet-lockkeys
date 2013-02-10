@@ -11,7 +11,8 @@
  *
  *  You should have received a copy of the GNU General Public License
  *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, 
+ *  USA.
  *
  *  Lock Keys (formerly Led) Applet was writen by Jörgen Scheibengruber <mfcn@gmx.de>
  *  Modifed for MATE by Assen Totin <assen.totin@gmail.com>
@@ -465,6 +466,38 @@ static const GtkActionEntry applet_menu_actions [] = {
 };
 
 
+static void applet_back_change (MatePanelApplet *a, MatePanelAppletBackgroundType type, GdkColor *color, GdkPixmap *pixmap, LedApplet *applet) {
+        /* taken from the TrashApplet */
+        GtkRcStyle *rc_style;
+        GtkStyle *style;
+
+        /* reset style */
+        gtk_widget_set_style (GTK_WIDGET (applet->applet), NULL);
+        rc_style = gtk_rc_style_new ();
+        gtk_widget_modify_style (GTK_WIDGET (applet->applet), rc_style);
+        g_object_unref (rc_style);
+
+        switch (type) {
+                case PANEL_COLOR_BACKGROUND:
+                        gtk_widget_modify_bg (GTK_WIDGET (applet->applet), GTK_STATE_NORMAL, color);
+                        break;
+
+                case PANEL_PIXMAP_BACKGROUND:
+                        style = gtk_style_copy (gtk_widget_get_style (GTK_WIDGET (applet->applet)));
+                        if (style->bg_pixmap[GTK_STATE_NORMAL])
+                                g_object_unref (style->bg_pixmap[GTK_STATE_NORMAL]);
+                        style->bg_pixmap[GTK_STATE_NORMAL] = g_object_ref(pixmap);
+                        gtk_widget_set_style (GTK_WIDGET (applet->applet), style);
+                        g_object_unref (style);
+                        break;
+
+                case PANEL_NO_BACKGROUND:
+                default:
+                        break;
+        }
+
+}
+
 /* The "main" function
  */
 static gboolean led_applet_factory(MatePanelApplet *applet_widget, const gchar *iid, gpointer data) {
@@ -505,7 +538,7 @@ static gboolean led_applet_factory(MatePanelApplet *applet_widget, const gchar *
 	
 	applet->vbox = gtk_vbox_new(FALSE, 0);
 	applet->hbox = gtk_hbox_new(FALSE, 0);
-	
+
 	applet->num_pix = gtk_image_new();
 	applet->caps_pix = gtk_image_new();
 	applet->scroll_pix = gtk_image_new();
@@ -583,6 +616,7 @@ static gboolean led_applet_factory(MatePanelApplet *applet_widget, const gchar *
 	g_signal_connect(G_OBJECT(applet_widget), "change_size", G_CALLBACK(applet_change_size), (gpointer)applet);
 	g_signal_connect(G_OBJECT(applet_widget), "change_orient", G_CALLBACK(applet_change_orient), (gpointer)applet);
 	g_signal_connect(G_OBJECT(applet_widget), "destroy", G_CALLBACK(applet_destroy), (gpointer)applet);
+	g_signal_connect(G_OBJECT(applet_widget), "change_background", G_CALLBACK (applet_back_change), (gpointer)applet);
 
 	if (!XkbSelectEvents(applet->rootwin, XkbUseCoreKbd, XkbIndicatorStateNotifyMask, XkbIndicatorStateNotifyMask))
 		return FALSE;

@@ -2,9 +2,9 @@ Summary: MATE Keyboard LED indicator
 Name: mate-applet-lockkeys
 Version: @PACKAGE_VERSION@ 
 Release: 1
-Group: System
-License: GPL
-Source: http://bilbo.online.bg/~assen/mate-applet-lockkeys/mate-applet-lockkeys-@PACKAGE_VERSION@.tar.gz
+Group: User Interface/Desktops 
+License: GPLv2+
+Source: http://www.zavedil.com/wp-content/uploads/2012/07/mate-applet-lockkeys-@PACKAGE_VERSION@.tar.gz
 BuildRoot: /var/tmp/%{name}-buildroot
 Requires: mate-panel >= 1.3.0
 
@@ -47,7 +47,7 @@ install -m 644 src/images/applet_lockkeys.22.png $RPM_BUILD_ROOT@ICONSDIR@/hicol
 install -m 644 src/images/applet_lockkeys.24.png $RPM_BUILD_ROOT@ICONSDIR@/hicolor/24x24/apps/applet_lockkeys.png
 install -m 644 src/images/applet_lockkeys.32.png $RPM_BUILD_ROOT@ICONSDIR@/hicolor/32x32/apps/applet_lockkeys.png
 install -m 755 src/org.mate.applets.LockkeysApplet.mate-panel-applet $RPM_BUILD_ROOT@DATAROOTDIR@/mate-panel/applets/org.mate.applets.LockkeysApplet.mate-panel-applet
-install -m 755 src/org.mate.panel.applet.LockkeysApplet.service $RPM_BUILD_ROOT@DATAROOTDIR@/dbus-1/services/org.mate.panel.applet.LockkeysApplet.service
+install -m 644 src/org.mate.panel.applet.LockkeysApplet.service $RPM_BUILD_ROOT@DATAROOTDIR@/dbus-1/services/org.mate.panel.applet.LockkeysApplet.service
 install -m 644 src/lockkeys-applet-menu.xml $RPM_BUILD_ROOT@DATAROOTDIR@/mate-2.0/ui/lockkeys-applet-menu.xml
 install -m 644 src/org.mate.panel.applet.LockkeysApplet.gschema.xml $RPM_BUILD_ROOT@DATAROOTDIR@/glib-2.0/schemas
 
@@ -66,7 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f lockkeys.lang
 %defattr(-,root,root)
-%doc README TODO LICENSE CHANGES AUTHORS BUGS
+%doc README TODO LICENSE ChangeLog AUTHORS BUGS
 
 @LIBEXECDIR@/mate-panel/lockkeys_applet
 @PIXMAPDIR@/applet_lockkeys_capslock_off.xpm
@@ -85,6 +85,8 @@ rm -rf $RPM_BUILD_ROOT
 @DATAROOTDIR@/glib-2.0/schemas/org.mate.panel.applet.LockkeysApplet.gschema.xml
 
 %changelog
+* Sun Feb 10 2013 Assen Totin <assen.totin@gmail.com>
+- Release 0.1.0
+
 * Sun Jul 22 2012 Assen Totin <assen.totin@gmail.com>
 - Release 0.0.1
-
