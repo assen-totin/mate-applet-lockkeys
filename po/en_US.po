@@ -7,71 +7,77 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: led_applet 0.1\n"
-"POT-Creation-Date: 2003-02-05 17:32+0100\n"
+"Report-Msgid-Bugs-To: assen.totin@gmail.com\n"
+"POT-Creation-Date: 2013-02-10 22:58+0200\n"
 "PO-Revision-Date: 2012-07-22 11:22+0300\n"
 "Last-Translator: root <root@archimed>\n"
 "Language-Team: Bulgarian\n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. Feel free to put your names here translators :-)
-#: src/lock-keys-applet.c:216
-msgid "TRANSLATORS"
-msgstr "TRANSLATORS"
-
-#: src/lock-keys-applet.c:225
+#: src/main.c:153 src/main.c:157
 msgid "Keyboard Lock Keys"
 msgstr "Keyboard Lock Keys"
 
-#: src/lock-keys-applet.c:322
+#: src/main.c:153
+msgid ""
+"An applet that shows the state of your Capslock-, Numlock-, and Scroll-lock "
+"keys"
+msgstr ""
+
+#: src/main.c:153
+msgid "Assen Totin <assen.totin@gmail.com>"
+msgstr ""
+
+#: src/main.c:245
 msgid "Lock Keys Preferences"
 msgstr "Lock Keys Preferences"
 
-#: src/lock-keys-applet.c:337
+#: src/main.c:260
 msgid "Settings"
 msgstr "Settings"
 
-#: src/lock-keys-applet.c:353
+#: src/main.c:276
 msgid "Show c_aps-lock"
 msgstr "Show c_aps-lock"
 
-#: src/lock-keys-applet.c:355
+#: src/main.c:278
 msgid "Show _num-lock"
 msgstr "Show _num-lock"
 
-#: src/lock-keys-applet.c:357
+#: src/main.c:280
 msgid "Show _scroll-lock"
 msgstr "Show _scroll-lock"
 
-#: src/lock-keys-applet.c:496
+#: src/main.c:411
 msgid "On"
 msgstr "On"
 
-#: src/lock-keys-applet.c:497
-msgid "Off"
+#: src/main.c:412
+#, fuzzy
+msgid "Of"
 msgstr "Off"
 
-#: src/lock-keys-applet.c:498
+#: src/main.c:414
 #, c-format
 msgid "Caps: %s Num: %s Scroll: %s"
 msgstr "Caps: %s Num: %s Scroll: %s"
 
-#: src/lock-keys-applet.c:606
+#: src/main.c:551
 msgid "Could not initialize X Keyboard Extension."
 msgstr "Could not initialize X Keyboard Extension."
 
-#: src/lock-keys-applet.c:671
-msgid "_Settings..."
-msgstr "_Settings..."
+#~ msgid "TRANSLATORS"
+#~ msgstr "TRANSLATORS"
 
-#: src/lock-keys-applet.c:671
-msgid "_Help"
-msgstr "_Help"
+#~ msgid "_Settings..."
+#~ msgstr "_Settings..."
 
-#: src/lock-keys-applet.c:671
-msgid "_About..."
-msgstr "_About..."
+#~ msgid "_Help"
+#~ msgstr "_Help"
 
+#~ msgid "_About..."
+#~ msgstr "_About..."

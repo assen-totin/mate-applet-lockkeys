@@ -5,16 +5,22 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: led_applets 0.1\n"
-"POT-Creation-Date: 2003-02-05 17:32+0100\n"
+"Report-Msgid-Bugs-To: assen.totin@gmail.com\n"
+"POT-Creation-Date: 2013-02-10 22:58+0200\n"
 "PO-Revision-Date: 2002-10-09 08:57+0200\n"
 "Last-Translator: \n"
 "Language-Team:  <hu@li.org>\n"
+"Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 0.9.6\n"
 
-#: GNOME_LockKeysApplet.server.in.in.h:1 src/lock-keys-applet.c:226
+#: src/main.c:153 src/main.c:157
+msgid "Keyboard Lock Keys"
+msgstr ""
+
+#: src/main.c:153
 #, fuzzy
 msgid ""
 "An applet that shows the state of your Capslock-, Numlock-, and Scroll-lock "
@@ -23,88 +29,77 @@ msgstr ""
 "Az applet a Capslock, Numlock és a Scroll-lock billentyűk állapotát mutatja "
 "meg"
 
-#: GNOME_LockKeysApplet.server.in.in.h:2
-#, fuzzy
-msgid "Lock Keys"
-msgstr "Led kijelző"
-
-#: GNOME_LockKeysApplet.server.in.in.h:3
-#, fuzzy
-msgid "Lock Keys Applet"
-msgstr "Led kijelző"
-
-#: GNOME_LockKeysApplet.server.in.in.h:4
-#, fuzzy
-msgid "Lock Keys Applet Factory"
-msgstr "Led kijelző factory"
-
-#: GNOME_LockKeysApplet.server.in.in.h:5
-msgid "Utility"
-msgstr "Segédeszközök"
-
-#. Feel free to put your names here translators :-)
-#: src/lock-keys-applet.c:216
-msgid "TRANSLATORS"
-msgstr "DOMA Péter <zelin@pointernet.hu>"
-
-#: src/lock-keys-applet.c:225
-msgid "Keyboard Lock Keys"
+#: src/main.c:153
+msgid "Assen Totin <assen.totin@gmail.com>"
 msgstr ""
 
-#: src/lock-keys-applet.c:322
+#: src/main.c:245
 #, fuzzy
 msgid "Lock Keys Preferences"
 msgstr "Led kijelző beállításai"
 
-#: src/lock-keys-applet.c:337
+#: src/main.c:260
 #, fuzzy
 msgid "Settings"
 msgstr "Beállítások:"
 
-#: src/lock-keys-applet.c:353
+#: src/main.c:276
 #, fuzzy
 msgid "Show c_aps-lock"
 msgstr "Caps-lock megjelenítése"
 
-#: src/lock-keys-applet.c:355
+#: src/main.c:278
 #, fuzzy
 msgid "Show _num-lock"
 msgstr "Num-lock megjelenítése"
 
-#: src/lock-keys-applet.c:357
+#: src/main.c:280
 #, fuzzy
 msgid "Show _scroll-lock"
 msgstr "Scroll-lock megjelenítése"
 
-#: src/lock-keys-applet.c:496
+#: src/main.c:411
 msgid "On"
 msgstr "Be"
 
-#: src/lock-keys-applet.c:497
-msgid "Off"
+#: src/main.c:412
+#, fuzzy
+msgid "Of"
 msgstr "Ki"
 
-#: src/lock-keys-applet.c:498
+#: src/main.c:414
 #, c-format
 msgid "Caps: %s Num: %s Scroll: %s"
 msgstr "Caps: %s Num: %s Scroll: %s"
 
-#: src/lock-keys-applet.c:606
+#: src/main.c:551
 msgid "Could not initialize X Keyboard Extension."
 msgstr "Nem tudom elindítani az X billentyűzet kiterjesztést."
 
-#: src/lock-keys-applet.c:671
 #, fuzzy
-msgid "_Settings..."
-msgstr "_Tulajdonságok..."
+#~ msgid "Lock Keys"
+#~ msgstr "Led kijelző"
 
-#: src/lock-keys-applet.c:671
-msgid "_Help"
-msgstr ""
+#, fuzzy
+#~ msgid "Lock Keys Applet"
+#~ msgstr "Led kijelző"
 
-#: src/lock-keys-applet.c:671
-msgid "_About..."
-msgstr "_Névjegy..."
+#, fuzzy
+#~ msgid "Lock Keys Applet Factory"
+#~ msgstr "Led kijelző factory"
+
+#~ msgid "Utility"
+#~ msgstr "Segédeszközök"
+
+#~ msgid "TRANSLATORS"
+#~ msgstr "DOMA Péter <zelin@pointernet.hu>"
+
+#, fuzzy
+#~ msgid "_Settings..."
+#~ msgstr "_Tulajdonságok..."
+
+#~ msgid "_About..."
+#~ msgstr "_Névjegy..."
 
 #~ msgid "This applet shows the state of your Num/Shift/Scrolllock keys"
 #~ msgstr "A Num/Caps/Scrolllock billentyűk állapotát mutatja meg."

@@ -3,7 +3,7 @@ Feb 10, 2013 - Version 0.1.4
 
 * Updated to GSettings
 * Transparent background in panel
-* Autodetect version of libmatepanelapplet 0.2, 0.3 or 0.4
+* Autodetect version of libmatepanelapplet 2.0, 3.0 or 4.0
 
 Jul 22, 2012 - Version 0.0.1
 ============================

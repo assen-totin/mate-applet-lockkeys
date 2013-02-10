@@ -1,6 +1,6 @@
 [Applet Factory]
 Id=LockkeysAppletFactory
-Location=@LIBEXECDIR@/mate-panel/lockkeys_applet
+Location=@LIBEXECDIR@/lockkeys_applet
 Name=Keyboard LED Indicator
 Name[en_GB]=Keyboard LED Indicator
 Name[bg_BG]=Индикатор от клавиатурата

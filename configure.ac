@@ -1,7 +1,10 @@
 # Process this file with autoconf to produce a configure script.
 AC_PREREQ([2.66])
-AC_INIT([lockkeys], [0.1.4], [assen.totin@gmail.com])
-AC_CONFIG_HEADERS([config.h])
+AC_INIT([mate-applet-lockkeys], [0.1.5], [assen.totin@gmail.com])
+
+AM_INIT_AUTOMAKE([-Wall])
+
+AM_CONFIG_HEADER([config.h])
 
 # prefix
 if test "x$prefix" = "xNONE" ; then
@@ -29,6 +32,13 @@ AC_SUBST([LOCALEDIR])
 AC_DEFINE_UNQUOTED([LOCALEDIR],["$LOCALEDIR"],[Locale files])
 TOPLEVELDIR=`pwd`
 AC_SUBST([TOPLEVELDIR])
+
+# gettext
+AM_GNU_GETTEXT_VERSION(0.18.1)
+AM_GNU_GETTEXT([external])
+if test $USE_NLS != "yes" ; then
+        echo "*** gettext not found. You're losing internationalization."
+fi
 
 # Checks for programs
 AC_PROG_CC
@@ -64,11 +74,16 @@ elif test $FOUND_LMPA_2 = "yes" ; then
 else
         AC_MSG_ERROR(["*** libmatepanelapplet not found."])
 fi
-AC_SUBST([LIBMATEPANELAPPLET])
 AC_DEFINE([HAVE_GSETTINGS],[1],[Define if we have GSettings])
 
+LOCKKEYS_FLAGS=`$PKG_CONFIG --cflags-only-I $LIBMATEPANELAPPLET`
+LOCKKEYS_LIBS=`$PKG_CONFIG --libs $LIBMATEPANELAPPLET`
+LOCKKEYS_LIBS="$LOCKKEYS_LIBS -lX11"
+AC_SUBST([LOCKKEYS_FLAGS])
+AC_SUBST([LOCKKEYS_LIBS])
+
 # Makefiles
-AC_CONFIG_FILES([Makefile src/Makefile po/Makefile])
+AC_CONFIG_FILES([Makefile src/Makefile images/Makefile po/Makefile.in po/Makefile])
 
 # Service files
 AC_CONFIG_FILES([src/org.mate.applets.LockkeysApplet.mate-panel-applet src/org.mate.panel.applet.LockkeysApplet.service mate-applet-lockkeys.spec src/org.mate.panel.applet.LockkeysApplet.gschema.xml])

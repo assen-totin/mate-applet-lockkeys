@@ -1,0 +1,69 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Assen Totin
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: mate-applet-lockkeys 0.1.5\n"
+"Report-Msgid-Bugs-To: assen.totin@gmail.com\n"
+"POT-Creation-Date: 2013-02-10 22:58+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/main.c:153 src/main.c:157
+msgid "Keyboard Lock Keys"
+msgstr ""
+
+#: src/main.c:153
+msgid ""
+"An applet that shows the state of your Capslock-, Numlock-, and Scroll-lock "
+"keys"
+msgstr ""
+
+#: src/main.c:153
+msgid "Assen Totin <assen.totin@gmail.com>"
+msgstr ""
+
+#: src/main.c:245
+msgid "Lock Keys Preferences"
+msgstr ""
+
+#: src/main.c:260
+msgid "Settings"
+msgstr ""
+
+#: src/main.c:276
+msgid "Show c_aps-lock"
+msgstr ""
+
+#: src/main.c:278
+msgid "Show _num-lock"
+msgstr ""
+
+#: src/main.c:280
+msgid "Show _scroll-lock"
+msgstr ""
+
+#: src/main.c:411
+msgid "On"
+msgstr ""
+
+#: src/main.c:412
+msgid "Of"
+msgstr ""
+
+#: src/main.c:414
+#, c-format
+msgid "Caps: %s Num: %s Scroll: %s"
+msgstr ""
+
+#: src/main.c:551
+msgid "Could not initialize X Keyboard Extension."
+msgstr ""

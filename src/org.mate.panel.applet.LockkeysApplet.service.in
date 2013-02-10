@@ -1,4 +1,4 @@
 [D-BUS Service]
 Name=org.mate.panel.applet.LockkeysAppletFactory
-Exec=@LIBEXECDIR@/mate-panel/lockkeys_applet
+Exec=@LIBEXECDIR@/lockkeys_applet
 
