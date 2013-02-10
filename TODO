@@ -1,6 +1,1 @@
-* better icons?
-* make it possible to specify which lock-keys to show [done]
-* maybe figure out howto get gdk to _not_ filter out xkb XEvents
-  so the applet no longer has to poll in order to detect changes
-  [done]
-* ...
+
