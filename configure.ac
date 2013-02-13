@@ -40,49 +40,63 @@ if test $USE_NLS != "yes" ; then
         echo "*** gettext not found. You're losing internationalization."
 fi
 
-# Checks for programs
+### Checks for programs
+
+# GCC
 AC_PROG_CC
 MAKEFILE_CC=`which gcc`
 AC_SUBST([MAKEFILE_CC])
 
+# msgfmt - for NSL
 AC_CHECK_PROG([FOUND_MSGFMT],[msgfmt],["yes"],["no"])
 if test $FOUND_MSGFMT = "no"; then
 	echo "*** msgfmt not found. Cannot continue."
 	exit
-else
-	MSGFMT=`which msgfmt`
-	AC_SUBST([MSGFMT])
 fi
 
-# Checks for libraries.
+# glib-compile-schemas - for GSettings
+PRINT_SETTINGS_BACKEND = "GConf"
+AC_CHECK_PROG([FOUND_GCS],[glib-compile-schemas],["yes"],["no"])
+AC_ARG_ENABLE([settings],[AS_HELP_STRING([--enable-settings],[settings backend to use, gsettings or gconf (default: check GSettings, if missing, use GConf))])],[FORCE_SETTINGS=$enableval])
+if test $FORCE_SETTINGS = "gsettings" ; then
+	if test $FOUND_GCS = "yes" ; then
+        	AC_DEFINE([HAVE_GSETTINGS],[1],[Define if we have GSettings])
+		PRINT_SETTINGS_BACKEND = "GSettings"
+	else
+		AC_MSG_ERROR(["*** GSettings forced, but not found."])
+	fi
+elif test $FORCE_SETTINGS = "gconf" ; then
+	# Do nothing, this is the fall-back
+	EMPTY="1"
+else
+	if test $FOUND_GCS = "yes" ; then
+		AC_DEFINE([HAVE_GSETTINGS],[1],[Define if we have GSettings])
+		PRINT_SETTINGS_BACKEND = "GSettings"
+	fi
+fi
 
-# Check for packages
+
+### Checks for libraries.
+LIBMATEPANELAPPLET="no"
+PKG_CHECK_MODULES([LIBMATEPANELAPPLET_4], [libmatepanelapplet-4.0], [LIBMATEPANELAPPLET="libmatepanelapplet-4.0"], [
+        PKG_CHECK_MODULES([LIBMATEPANELAPPLET_3], [libmatepanelapplet-3.0], [LIBMATEPANELAPPLET="libmatepanelapplet-3.0"], [
+                PKG_CHECK_MODULES([LIBMATEPANELAPPLET_2], [libmatepanelapplet-2.0], [LIBMATEPANELAPPLET="libmatepanelapplet-2.0"], [
+                        AC_MSG_ERROR(["*** libmatepanelapplet not found."])
+                ])
+        ])
+])
+
+### Check for packages
 PKG_CHECK_MODULES([GTK], [gtk+-2.0])
 PKG_CHECK_MODULES([GLIB], [glib-2.0])
-#PKG_CHECK_MODULES([LIBMATE], [libmate-2.0])
-HAVE_GSETTINGS=0
-PKG_CHECK_MODULES([LIBMATEPANELAPPLET_4], [libmatepanelapplet-4.0], [FOUND_LMPA_4="yes"], [FOUND_LMPA_4="no"])
-PKG_CHECK_MODULES([LIBMATEPANELAPPLET_3], [libmatepanelapplet-3.0], [FOUND_LMPA_3="yes"], [FOUND_LMPA_3="no"])
-PKG_CHECK_MODULES([LIBMATEPANELAPPLET_2], [libmatepanelapplet-2.0], [FOUND_LMPA_2="yes"], [FOUND_LMPA_2="no"])
-if test $FOUND_LMPA_4 = "yes" ; then
-        LIBMATEPANELAPPLET="libmatepanelapplet-4.0"
-	HAVE_GSETTINGS=1
-elif test $FOUND_LMPA_3 = "yes" ; then
-        LIBMATEPANELAPPLET="libmatepanelapplet-3.0"
-elif test $FOUND_LMPA_2 = "yes" ; then
-        LIBMATEPANELAPPLET="libmatepanelapplet-2.0"
-else
-        AC_MSG_ERROR(["*** libmatepanelapplet not found."])
-fi
-AC_DEFINE([HAVE_GSETTINGS],[1],[Define if we have GSettings])
 
+# Makefiles
 LOCKKEYS_FLAGS=`$PKG_CONFIG --cflags-only-I $LIBMATEPANELAPPLET`
 LOCKKEYS_LIBS=`$PKG_CONFIG --libs $LIBMATEPANELAPPLET`
 LOCKKEYS_LIBS="$LOCKKEYS_LIBS -lX11"
 AC_SUBST([LOCKKEYS_FLAGS])
 AC_SUBST([LOCKKEYS_LIBS])
 
-# Makefiles
 AC_CONFIG_FILES([Makefile src/Makefile images/Makefile po/Makefile.in po/Makefile])
 
 # Service files
@@ -96,6 +110,8 @@ AC_OUTPUT
 
 echo
 echo "Configuration complete."
+echo 
+echo "* settings backend: $PRINT_SETTINGS_BACKEND"
 echo
 echo "Now, run make."
 echo 

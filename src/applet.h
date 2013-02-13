@@ -55,4 +55,5 @@ typedef struct {
 } LedApplet;
 
 
+#define SCHEMA_PATH "/org/mate/panel/objects"
 #define APPLET_SCHEMA "org.mate.panel.applet.LockkeysApplet"
