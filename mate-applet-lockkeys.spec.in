@@ -82,8 +82,8 @@ rm -rf $RPM_BUILD_ROOT
 @DATAROOTDIR@/glib-2.0/schemas/org.mate.panel.applet.LockkeysApplet.gschema.xml
 
 %changelog
-* Sun Feb 10 2013 Assen Totin <assen.totin@gmail.com>
-- Release 0.1.5
+* Thu Feb 14 2013 Assen Totin <assen.totin@gmail.com>
+- Release 0.2.0
 
 * Sun Jul 22 2012 Assen Totin <assen.totin@gmail.com>
 - Release 0.0.1
