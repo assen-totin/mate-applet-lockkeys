@@ -565,7 +565,7 @@ static gboolean led_applet_factory(MatePanelApplet *applet_widget, const gchar *
 
 #ifdef HAVE_GSETTINGS
 	//applet->gsettings = mate_panel_applet_settings_new (MATE_PANEL_APPLET(applet->applet), APPLET_SCHEMA);
-	applet->gsettings = g_settings_new_wtih_path(APPLET_SCHEMA, SCHEMA_PATH);
+	applet->gsettings = g_settings_new_with_path(APPLET_SCHEMA, SCHEMA_PATH);
 	applet->on[CAPSLOCK] =  g_settings_get_boolean (applet->gsettings, "capslock-state");
 	applet->on[NUMLOCK] =  g_settings_get_boolean (applet->gsettings, "numlock-state");
 	applet->on[SCROLLLOCK] =  g_settings_get_boolean (applet->gsettings, "scrolllock-state");

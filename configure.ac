@@ -55,13 +55,14 @@ if test $FOUND_MSGFMT = "no"; then
 fi
 
 # glib-compile-schemas - for GSettings
-PRINT_SETTINGS_BACKEND = "GConf"
+PRINT_SETTINGS_BACKEND="GConf"
+FORCE_SETTINGS="no"
 AC_CHECK_PROG([FOUND_GCS],[glib-compile-schemas],["yes"],["no"])
 AC_ARG_ENABLE([settings],[AS_HELP_STRING([--enable-settings],[settings backend to use, gsettings or gconf (default: check GSettings, if missing, use GConf))])],[FORCE_SETTINGS=$enableval])
 if test $FORCE_SETTINGS = "gsettings" ; then
 	if test $FOUND_GCS = "yes" ; then
         	AC_DEFINE([HAVE_GSETTINGS],[1],[Define if we have GSettings])
-		PRINT_SETTINGS_BACKEND = "GSettings"
+		PRINT_SETTINGS_BACKEND="GSettings"
 	else
 		AC_MSG_ERROR(["*** GSettings forced, but not found."])
 	fi
@@ -71,7 +72,7 @@ elif test $FORCE_SETTINGS = "gconf" ; then
 else
 	if test $FOUND_GCS = "yes" ; then
 		AC_DEFINE([HAVE_GSETTINGS],[1],[Define if we have GSettings])
-		PRINT_SETTINGS_BACKEND = "GSettings"
+		PRINT_SETTINGS_BACKEND="GSettings"
 	fi
 fi
 
