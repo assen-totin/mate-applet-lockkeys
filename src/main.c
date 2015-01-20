@@ -409,7 +409,7 @@ void ledstates_changed(LedApplet *applet, unsigned int state) {
 #endif
 
 	strncpy(&on[0], _("On"), sizeof(on));
-	strncpy(&off[0], _("Of"), sizeof (off));
+	strncpy(&off[0], _("Off"), sizeof (off));
 
 	buf = g_strdup_printf(_("Caps: %s Num: %s Scroll: %s"), applet->on[CAPSLOCK] ? &on[0] : &off[0], 
 		applet->on[NUMLOCK] ? &on[0] : &off[0], applet->on[SCROLLLOCK] ? &on[0] : &off[0]);

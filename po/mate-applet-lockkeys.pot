@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-applet-lockkeys 0.1.5\n"
+"Project-Id-Version: mate-applet-lockkeys 0.2.3\n"
 "Report-Msgid-Bugs-To: assen.totin@gmail.com\n"
-"POT-Creation-Date: 2013-02-10 22:58+0200\n"
+"POT-Creation-Date: 2013-12-02 20:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,7 +56,7 @@ msgid "On"
 msgstr ""
 
 #: src/main.c:412
-msgid "Of"
+msgid "Off"
 msgstr ""
 
 #: src/main.c:414

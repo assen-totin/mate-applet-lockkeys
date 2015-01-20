@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: led_applet 0.3\n"
 "Report-Msgid-Bugs-To: assen.totin@gmail.com\n"
-"POT-Creation-Date: 2013-02-10 22:58+0200\n"
+"POT-Creation-Date: 2013-12-02 20:53+0200\n"
 "PO-Revision-Date: 2002-12-31 09:11+0100\n"
 "Last-Translator: Dennis Björklund <db@zigo.dhs.org>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -63,7 +63,7 @@ msgstr "På"
 
 #: src/main.c:412
 #, fuzzy
-msgid "Of"
+msgid "Off"
 msgstr "Av"
 
 #: src/main.c:414

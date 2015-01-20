@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: led_applet 0.1\n"
 "Report-Msgid-Bugs-To: assen.totin@gmail.com\n"
-"POT-Creation-Date: 2013-02-10 22:58+0200\n"
+"POT-Creation-Date: 2013-12-02 20:53+0200\n"
 "PO-Revision-Date: 2002-10-22 22:09+0200\n"
 "Last-Translator: JÃ¶rgen Scheibengruber <mfcn@gmx.de>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
@@ -58,7 +58,7 @@ msgstr "An"
 
 #: src/main.c:412
 #, fuzzy
-msgid "Of"
+msgid "Off"
 msgstr "Aus"
 
 #: src/main.c:414

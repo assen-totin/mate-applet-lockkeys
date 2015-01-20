@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: led_applet 0.1\n"
 "Report-Msgid-Bugs-To: assen.totin@gmail.com\n"
-"POT-Creation-Date: 2013-02-10 22:58+0200\n"
+"POT-Creation-Date: 2013-12-02 20:53+0200\n"
 "PO-Revision-Date: 2012-07-22 11:22+0300\n"
 "Last-Translator: root <root@archimed>\n"
 "Language-Team: Bulgarian\n"
@@ -58,7 +58,7 @@ msgstr "On"
 
 #: src/main.c:412
 #, fuzzy
-msgid "Of"
+msgid "Off"
 msgstr "Off"
 
 #: src/main.c:414
