@@ -248,9 +248,6 @@ static void settings_cb (GtkAction *action, LedApplet *applet) {
 		//GTK_STOCK_HELP, GTK_RESPONSE_HELP,
 		NULL));
 
-	//gtk_container_set_border_width(GTK_CONTAINER(applet->settings), 12);
-	//gtk_box_set_spacing(GTK_BOX(applet->settings->vbox), 18);
-	//gtk_window_set_default_size(GTK_WINDOW(applet->settings), 240, -1);
 	gtk_dialog_set_default_response(GTK_DIALOG(applet->settings), GTK_RESPONSE_ACCEPT);
 	gtk_window_set_resizable(GTK_WINDOW(applet->settings), FALSE);
 	
@@ -260,7 +257,6 @@ static void settings_cb (GtkAction *action, LedApplet *applet) {
 	header_str = g_strconcat("<span weight=\"bold\">", _("Settings"), "</span>", NULL);
 	header_lbl = gtk_label_new(header_str);
 	gtk_label_set_use_markup(GTK_LABEL(header_lbl), TRUE);
-	//gtk_label_set_justify(GTK_LABEL(header_lbl), GTK_JUSTIFY_LEFT);
 	gtk_misc_set_alignment(GTK_MISC(header_lbl), 0, 0.5);
 	g_free(header_str);
 	gtk_box_pack_start(GTK_BOX(vbox1), header_lbl, TRUE, TRUE, 0);
@@ -457,12 +453,8 @@ static gboolean init_xkb_extension(LedApplet *applet) {
 }
 
 static const GtkActionEntry applet_menu_actions [] = {
-	//{ "Settings", GTK_STOCK_PROPERTIES, N_("_Settings"), NULL, NULL, G_CALLBACK (settings_cb) },
-	//{ "Help", GTK_STOCK_HELP, N_("_Help"), NULL, NULL, G_CALLBACK (help_cb) },
-	//{ "About", GTK_STOCK_ABOUT, N_("_About"), NULL, NULL, G_CALLBACK (about_cb) }
 	{ "Settings", GTK_STOCK_PROPERTIES, "_Settings", NULL, NULL, G_CALLBACK (settings_cb) },
-	//{ "Help", GTK_STOCK_HELP, "_Help", NULL, NULL, G_CALLBACK (help_cb) },
-	{ "About", GTK_STOCK_ABOUT, NULL, "_About", NULL, G_CALLBACK (about_cb) }
+	{ "About", GTK_STOCK_ABOUT, "_About", NULL, NULL, G_CALLBACK (about_cb) }
 };
 
 
@@ -608,8 +600,8 @@ static gboolean led_applet_factory(MatePanelApplet *applet_widget, const gchar *
 	gtk_container_add(GTK_CONTAINER(applet_widget), applet->vbox);
 
         GtkActionGroup *action_group = gtk_action_group_new ("Lockkeys Applet Actions");
-        //gtk_action_group_set_translation_domain (action_group, GETTEXT_PACKAGE);
         gtk_action_group_add_actions (action_group, applet_menu_actions, G_N_ELEMENTS (applet_menu_actions), applet);
+	gtk_action_group_set_translation_domain (action_group, PACKAGE_NAME);
 	mate_panel_applet_setup_menu_from_file(applet->applet, "/usr/share/mate-2.0/ui/lockkeys-applet-menu.xml", action_group);
 
 	gtk_widget_show_all(GTK_WIDGET(applet_widget));
