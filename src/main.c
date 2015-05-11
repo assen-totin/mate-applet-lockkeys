@@ -453,10 +453,14 @@ static gboolean init_xkb_extension(LedApplet *applet) {
 }
 
 static const GtkActionEntry applet_menu_actions [] = {
-	{ "Settings", GTK_STOCK_PROPERTIES, "_Settings", NULL, NULL, G_CALLBACK (settings_cb) },
-	{ "About", GTK_STOCK_ABOUT, "_About", NULL, NULL, G_CALLBACK (about_cb) }
+	{ "Properties", GTK_STOCK_PROPERTIES, NULL, NULL, NULL, G_CALLBACK (settings_cb) },
+	{ "About", GTK_STOCK_ABOUT, NULL, NULL, NULL, G_CALLBACK (about_cb) }
 };
 
+static char *ui  =
+"<menuitem name='Item 1' action='Properties' />"
+"<menuitem name='Item 2' action='About' />"
+;
 
 static void applet_back_change (MatePanelApplet *a, MatePanelAppletBackgroundType type, GdkColor *color, GdkPixmap *pixmap, LedApplet *applet) {
         /* taken from the TrashApplet */
@@ -601,8 +605,8 @@ static gboolean led_applet_factory(MatePanelApplet *applet_widget, const gchar *
 
         GtkActionGroup *action_group = gtk_action_group_new ("Lockkeys Applet Actions");
         gtk_action_group_add_actions (action_group, applet_menu_actions, G_N_ELEMENTS (applet_menu_actions), applet);
-	gtk_action_group_set_translation_domain (action_group, PACKAGE_NAME);
-	mate_panel_applet_setup_menu_from_file(applet->applet, "/usr/share/mate-2.0/ui/lockkeys-applet-menu.xml", action_group);
+	//gtk_action_group_set_translation_domain (action_group, PACKAGE_NAME);
+	mate_panel_applet_setup_menu(applet->applet, ui, action_group);
 
 	gtk_widget_show_all(GTK_WIDGET(applet_widget));
 
