@@ -1,3 +1,7 @@
+Jan 8, 2017 - Version 0.3.0
+============================
+* Added GTK3 support
+
 Jan 20, 2015 - Version 0.2.4
 ============================
 * Updated code to comply with aggressive-loop-optimizations mode of GCC
