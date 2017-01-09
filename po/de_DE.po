@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: led_applet 0.1\n"
 "Report-Msgid-Bugs-To: assen.totin@gmail.com\n"
-"POT-Creation-Date: 2013-12-02 20:53+0200\n"
+"POT-Creation-Date: 2017-01-08 15:35+0200\n"
 "PO-Revision-Date: 2002-10-22 22:09+0200\n"
 "Last-Translator: JÃ¶rgen Scheibengruber <mfcn@gmx.de>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
@@ -16,57 +16,62 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/main.c:153 src/main.c:157
+#: src/main.c:168
 msgid "Keyboard Lock Keys"
 msgstr "Feststelltasten"
 
-#: src/main.c:153
+#: src/main.c:180
+msgid "translator-credits"
+msgstr ""
+
+#: src/main.c:182
+#, fuzzy
 msgid ""
-"An applet that shows the state of your Capslock-, Numlock-, and Scroll-lock "
-"keys"
+"An applet that shows the state of your CapsLock, NumLock, and ScrollLock "
+"keys."
 msgstr ""
 "Ein Applet das den Status der Hochstell-, Numlock-, und Rollentasten der "
 "Tastatur anzeigt"
 
-#: src/main.c:153
-msgid "Assen Totin <assen.totin@gmail.com>"
+#: src/main.c:185
+msgid "Home page"
 msgstr ""
 
-#: src/main.c:245
+#: src/main.c:279
 msgid "Lock Keys Preferences"
 msgstr "Feststelltasten Einstellungen"
 
-#: src/main.c:260
+#: src/main.c:300
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: src/main.c:276
+#: src/main.c:325
 msgid "Show c_aps-lock"
 msgstr "_Hochstelltaste zeigen"
 
-#: src/main.c:278
+#: src/main.c:327
 msgid "Show _num-lock"
 msgstr "_Numlocktaste zeigen"
 
-#: src/main.c:280
+#: src/main.c:329
 msgid "Show _scroll-lock"
 msgstr "_Rollentaste zeigen"
 
-#: src/main.c:411
+#: src/main.c:464
 msgid "On"
 msgstr "An"
 
-#: src/main.c:412
+#: src/main.c:465
 #, fuzzy
 msgid "Off"
 msgstr "Aus"
 
-#: src/main.c:414
+#: src/main.c:467
 #, c-format
 msgid "Caps: %s Num: %s Scroll: %s"
 msgstr "Hochstell: %s Num: %s Rollen: %s"
 
-#: src/main.c:551
+#: src/main.c:586
 msgid "Could not initialize X Keyboard Extension."
 msgstr "Die X Keyboard Extension konnte nicht initialisiert werden."
 

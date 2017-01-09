@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: led_applet 0.3\n"
 "Report-Msgid-Bugs-To: assen.totin@gmail.com\n"
-"POT-Creation-Date: 2013-12-02 20:53+0200\n"
+"POT-Creation-Date: 2017-01-08 15:35+0200\n"
 "PO-Revision-Date: 2002-12-31 09:11+0100\n"
 "Last-Translator: Dennis Björklund <db@zigo.dhs.org>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -15,63 +15,67 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/main.c:153 src/main.c:157
+#: src/main.c:168
 msgid "Keyboard Lock Keys"
 msgstr ""
 
-#: src/main.c:153
+#: src/main.c:180
+msgid "translator-credits"
+msgstr ""
+
+#: src/main.c:182
 #, fuzzy
 msgid ""
-"An applet that shows the state of your Capslock-, Numlock-, and Scroll-lock "
-"keys"
+"An applet that shows the state of your CapsLock, NumLock, and ScrollLock "
+"keys."
 msgstr ""
 "Detta panelprogram visar tillståndet på dina Caps Lock, Num Lock och Scroll "
 "Lock-knappar"
 
-#: src/main.c:153
-msgid "Assen Totin <assen.totin@gmail.com>"
+#: src/main.c:185
+msgid "Home page"
 msgstr ""
 
-#: src/main.c:245
+#: src/main.c:279
 #, fuzzy
 msgid "Lock Keys Preferences"
 msgstr "Inställningar för lysdioder"
 
-#: src/main.c:260
+#: src/main.c:300
 #, fuzzy
 msgid "Settings"
 msgstr "Inställningar:"
 
-#: src/main.c:276
+#: src/main.c:325
 #, fuzzy
 msgid "Show c_aps-lock"
 msgstr "Visa Caps Lock"
 
-#: src/main.c:278
+#: src/main.c:327
 #, fuzzy
 msgid "Show _num-lock"
 msgstr "Visa Num Lock"
 
-#: src/main.c:280
+#: src/main.c:329
 #, fuzzy
 msgid "Show _scroll-lock"
 msgstr "Visa Scroll Lock"
 
-#: src/main.c:411
+#: src/main.c:464
 msgid "On"
 msgstr "På"
 
-#: src/main.c:412
+#: src/main.c:465
 #, fuzzy
 msgid "Off"
 msgstr "Av"
 
-#: src/main.c:414
+#: src/main.c:467
 #, c-format
 msgid "Caps: %s Num: %s Scroll: %s"
 msgstr "Caps: %s Num: %s Scroll: %s"
 
-#: src/main.c:551
+#: src/main.c:586
 msgid "Could not initialize X Keyboard Extension."
 msgstr "Kunde inte initiera X Keyboard-utökningen."
 
