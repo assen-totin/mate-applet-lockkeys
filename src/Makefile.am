@@ -17,7 +17,7 @@ lockkeys_applet_SOURCES = main.c applet.h
 appletdir = $(datadir)/mate-panel/applets
 applet_DATA = org.mate.applets.LockkeysApplet.mate-panel-applet
 
-xmluidir = $(datadir)/mate-2.0/ui
+xmluidir = $(datadir)/mate/ui
 xmlui_DATA = lockkeys-applet-menu.xml
 EXTRA_DIST = lockkeys-applet-menu.xml
 
