@@ -645,7 +645,7 @@ static gboolean led_applet_factory(MatePanelApplet *applet_widget, const gchar *
 	GtkActionGroup *action_group = gtk_action_group_new ("Lockkeys Applet Actions");
 	gtk_action_group_add_actions (action_group, applet_menu_actions, G_N_ELEMENTS (applet_menu_actions), applet);
 	gtk_action_group_set_translation_domain (action_group, PACKAGE_NAME);
-	mate_panel_applet_setup_menu_from_file(applet->applet, "/usr/share/mate-2.0/ui/lockkeys-applet-menu.xml", action_group);
+	mate_panel_applet_setup_menu_from_file(applet->applet, "/usr/share/mate/ui/lockkeys-applet-menu.xml", action_group);
 
 	gtk_widget_show_all(GTK_WIDGET(applet_widget));
 

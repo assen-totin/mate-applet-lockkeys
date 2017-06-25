@@ -32,7 +32,7 @@ mkdir -p $RPM_BUILD_ROOT@ICONSDIR@/hicolor/24x24/apps
 mkdir -p $RPM_BUILD_ROOT@ICONSDIR@/hicolor/32x32/apps
 mkdir -p $RPM_BUILD_ROOT@DATAROOTDIR@/mate-panel/applets
 mkdir -p $RPM_BUILD_ROOT@DATAROOTDIR@/dbus-1/services
-mkdir -p $RPM_BUILD_ROOT@DATAROOTDIR@/mate-2.0/ui/
+mkdir -p $RPM_BUILD_ROOT@DATAROOTDIR@/mate/ui/
 mkdir -p $RPM_BUILD_ROOT@DATAROOTDIR@/glib-2.0/schemas
 
 for DIR in `find po/ -maxdepth 1 -mindepth 1 -type d | sed s/po.//g`; do
@@ -81,7 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 @ICONSDIR@/hicolor/32x32/apps/applet_lockkeys.png
 @DATAROOTDIR@/mate-panel/applets/org.mate.applets.LockkeysApplet.mate-panel-applet
 @DATAROOTDIR@/dbus-1/services/org.mate.panel.applet.LockkeysApplet.service
-@DATAROOTDIR@/mate-2.0/ui/lockkeys-applet-menu.xml
+@DATAROOTDIR@/mate/ui/lockkeys-applet-menu.xml
 @DATAROOTDIR@/glib-2.0/schemas/org.mate.panel.applet.LockkeysApplet.gschema.xml
 
 %changelog
